@@ -18,8 +18,8 @@ public class FindElementTests {
     public void setUp(){
         driver = new ChromeDriver();
         driver.get("https://icarro-v1.netlify.app/search?page=0&size=10");
-        driver.manage().window().maximize();
-        //driver.manage().window().setSize(new Dimension(900, 900));специфический размер экрана
+        //driver.manage().window().maximize();
+        driver.manage().window().setSize(new Dimension(900, 900));//специфический размер экрана
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20)); для тяжелых сайтов
     }

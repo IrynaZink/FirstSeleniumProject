@@ -12,10 +12,11 @@ public class FirstSeleniumTest {
     @BeforeMethod
     public void setUp(){
         driver = new ChromeDriver();
-        driver.get("https://www.google.com");//without history
+        //driver.get("https://www.google.com");//without history
+        driver.navigate().to("https://www.google.com");//with history
         driver.navigate().back();
         driver.navigate().forward();
-        driver.navigate().refresh();
+        driver.navigate().refresh();//перезагрузка страницы например проверить очищаются поля после перезагрузки страницы
 
     }
     //test
