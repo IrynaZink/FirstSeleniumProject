@@ -66,7 +66,33 @@ public class FindElementTests {
         System.out.println(search.getAttribute("class"));
 
     }
+    @Test
+    public void findElementByLinkText(){
+        WebElement linkText = driver.findElement(By.linkText("Let car work"));
+        System.out.println(linkText.getText());
 
+        //WebElement linkText2 = driver.findElement(By.linkText("Los Angeles"));
+        //System.out.println(linkText2.getText());
+
+
+    }
+
+    @Test
+    public void findElementByPartialLinkText(){
+        WebElement partialLinkText = driver.findElement(By.partialLinkText("work"));
+        System.out.println(partialLinkText.getText());
+
+    }
+    @Test
+    public void findElementByLinkText2(){
+        WebElement linkText1 = driver.findElement(By.linkText("Terms of use"));
+        System.out.println(linkText1.getText());
+    }
+    @Test
+    public void findElementByPartialText2(){
+        WebElement linkText2 = driver.findElement(By.partialLinkText("up"));
+        System.out.println(linkText2.getText());
+    }
 
     @AfterMethod(enabled = false)
     public void tearDown(){
