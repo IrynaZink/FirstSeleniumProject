@@ -18,8 +18,8 @@ public class FindElementTests {
     public void setUp(){
         driver = new ChromeDriver();
         driver.get("https://icarro-v1.netlify.app/search?page=0&size=10");
-        //driver.manage().window().maximize();
-        driver.manage().window().setSize(new Dimension(900, 900));//специфический размер экрана
+        driver.manage().window().maximize();
+        //driver.manage().window().setSize(new Dimension(900, 900));//специфический размер экрана
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20)); для тяжелых сайтов
     }
@@ -68,11 +68,14 @@ public class FindElementTests {
     }
     @Test
     public void findElementByLinkText(){
-        WebElement linkText = driver.findElement(By.linkText("Let car work"));
-        System.out.println(linkText.getText());
+        //WebElement linkText = driver.findElement(By.linkText("Let car work"));
+        //System.out.println(linkText.getText());
 
         //WebElement linkText2 = driver.findElement(By.linkText("Los Angeles"));
         //System.out.println(linkText2.getText());
+
+        WebElement angeles = driver.findElement(By.linkText("Rome"));
+        System.out.println(angeles.getText());
 
 
     }
@@ -92,6 +95,41 @@ public class FindElementTests {
     public void findElementByPartialText2(){
         WebElement linkText2 = driver.findElement(By.partialLinkText("up"));
         System.out.println(linkText2.getText());
+    }
+
+    @Test
+    public void findElementByCssSelector(){
+        //driver.findElement(By.tagName("h1"));
+       //tagName h1-> css "h1"
+        driver.findElement(By.cssSelector("h1"));
+        //driver.findElement(By.id("city"));
+        //id = -> css "city"
+        driver.findElement(By.cssSelector("#city"));
+
+        //driver.findElement(By.className("telephone"));
+        //className = "telephone" -> css .telephone
+        driver.findElement(By.cssSelector(".telephone"));
+
+        //contains ->
+        driver.findElement(By.cssSelector("[class*='container']"));
+
+
+        //start- > ^
+        driver.findElement(By.cssSelector("[class^='input']"));
+        //end to -> $
+        driver.findElement(By.cssSelector("[class$='icon']"));
+        //[key='value']
+        driver.findElement(By.cssSelector("[placeholder='City']"));
+        //composite tag + class + class составной css селектор
+        driver.findElement(By.cssSelector("a.navigation-link.active"));
+        //one step above(один шаг вниз)
+        driver.findElement(By.cssSelector(".logo>img"));
+        //<tag> or <class> or <id>:nth-child(n)
+        WebElement feedback = driver.findElement(By.cssSelector(".feedback-card:nth-child(1)"));
+        System.out.println(feedback.getText());
+        WebElement search = driver.findElement(By.cssSelector(".navigation-link:nth-child(2)"));
+        System.out.println(search.getText());
+
     }
 
     @AfterMethod(enabled = false)
