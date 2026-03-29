@@ -37,6 +37,30 @@ public class FindDemoWebShopElementHw16 {
         driver.findElement(By.cssSelector(".header"));
         driver.findElement(By.cssSelector(".item-box:nth-child(2)"));
         //driver.findElement(By.cssSelector(".item-box:nth-child(1)"));
+        driver.findElement(By.cssSelector("[class*='wrapper'"));
+        driver.findElement(By.cssSelector("[class^='ajax']"));
+        driver.findElement(By.cssSelector("[style='display: none']"));
+
+
+    }
+
+    @Test
+    public void findElementByXPath(){
+        driver.findElement(By.xpath("//*[@href='/register']"));
+        driver.findElement(By.xpath("//*[@id='small-searchterms']"));
+        driver.findElement(By.xpath("//a[text()='14.1-inch Laptop']"));//по точному совпадению текста
+        driver.findElement(By.xpath("//*[@class='flyout-cart']"));
+        WebElement store = driver.findElement(By.xpath("//*[contains(text(),'our store')]"));
+        System.out.println(store.getText());
+        driver.findElement(By.xpath("//*[.='Welcome to the new Tricentis store!']"));
+        driver.findElement(By.xpath("//*[@class='header-logo']/a"));
+        WebElement element = driver.findElement(By.xpath("//*[@class='title']/following-sibling::div[5]"));
+        System.out.println(element.getText());
+        driver.findElement(By.xpath("//p/parent::*"));//one step up
+        driver.findElement(By.xpath("//p/parent::div"));
+        driver.findElement(By.xpath("//p/.."));
+        driver.findElement(By.xpath("//p/ancestor::div[2]"));
+
 
 
     }
